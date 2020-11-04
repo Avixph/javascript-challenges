@@ -39,5 +39,5 @@ The file you will be editing is `add-eventing.js`.
 The `add-eventing-test.js` file includes a test suite to run your code against.
 
 Run `node add-eventing-test.js` to run the test suite in full. As you write code
-to pass tests, make sure you unskip succeeding tests by changing `test.skip` to
+to pass tests, make sure you unskip succeeding tests by changing `test` to
 just `test`.

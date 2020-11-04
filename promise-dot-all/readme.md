@@ -38,6 +38,6 @@ The `promise-dot-all-test.js` file includes a test suite to run your code agains
 
 Run `node promise-dot-all-test.js` to run the test suite in full. As you write
 code to pass tests, make sure you unskip succeeding tests by changing
-`test.skip` to just `test`.
+`test` to just `test`.
 
 [mdn]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all

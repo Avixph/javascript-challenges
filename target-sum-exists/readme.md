@@ -27,7 +27,7 @@ The `target-sum-exists-test.js` file includes a test suite to run your code
 against.
 
 Run `node target-sum-exists-test.js` to run the test suite in full. As you write code
-to pass tests, make sure you unskip succeeding tests by changing `test.skip` to
+to pass tests, make sure you unskip succeeding tests by changing `test` to
 just `test`.
 
 ### Second Challenge
