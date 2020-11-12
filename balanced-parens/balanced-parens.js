@@ -1,5 +1,15 @@
 const parensAreBalanced = (input) => {
-  return false
-}
+  let inputSplt = input.split("");
 
-module.exports = parensAreBalanced
+  return !inputSplt.reduce((prevChar, currChar) => {
+    if (currChar === "(" || currChar === "{" || currChar === "[") {
+      return ++prevChar;
+    } else if (currChar === ")" || currChar === "}" || currChar === "]") {
+      return --prevChar;
+    }
+
+    return prevChar;
+  }, 0);
+};
+
+module.exports = parensAreBalanced;
