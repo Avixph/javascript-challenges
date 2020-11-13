@@ -3,31 +3,46 @@ const stackMachineCalculator = (instructions) => {
   let intArr = instructions.split(" ");
 
   for (let i = 0; i < intArr.length; i++) {
-    switch (intArr[i]) {
-      case "+":
-        stack.push(stack.pop() + stack.pop());
-        break;
-      case "-":
-        stack.push(stack.pop() - stack.pop());
-        break;
-      case "*":
-        stack.push(stack.pop() * stack.pop());
-        break;
-      case "/":
-        stack.push(stack.pop() / stack.pop());
-        break;
-      case "DUP":
-        stack.splice(stack.length, 0, stack[stack.length - 1]);
-        // stack.push(stack.pop());
-        break;
-      case "POP":
-        stack.pop();
-        break;
-      default:
-        stack.push(parseInt(intArr[i]));
+    if (!instructions.length) {
+      return -1;
     }
-    // return stack[stack.length - 1];
-    return stack.pop();
+    const stack = [];
+    const push = (n) => stack.push(Number(n));
+    var error = false;
+    const pop = () => {
+      if (stack.length) {
+        return stack.pop();
+      }
+      return (error = true), -1;
+    };
+    const ops = {
+      POP: pop,
+      DUP() {
+        const dup = pop();
+        push(dup);
+        push(dup);
+      },
+      "+"() {
+        push(pop() + pop());
+      },
+      "-"() {
+        push(pop() - pop());
+      },
+    };
+    for (const item of instructions.split(" ")) {
+      if (!isNaN(item)) {
+        push(item);
+      } else {
+        const op = ops[item];
+        if (op) {
+          op();
+        }
+        if (error) {
+          return -1;
+        }
+      }
+    }
+    return pop();
   }
 };
 
