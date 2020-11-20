@@ -1,4 +1,4 @@
-const parensAreBalanced = (str) => {
+const parensAreBalanced = (input) => {
   let inputSplt = input.split("");
 
   return !inputSplt.reduce((prevChar, currChar) => {
